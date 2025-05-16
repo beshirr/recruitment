@@ -52,6 +52,7 @@
             this.searchTextHolder.Size = new System.Drawing.Size(376, 22);
             this.searchTextHolder.TabIndex = 1;
             this.searchTextHolder.Text = "Search by job title, loaction or keywords (e.g. Sales in Cairo)";
+            this.searchTextHolder.TextChanged += new System.EventHandler(this.searchTextHolder_TextChanged);
             // 
             // searchBtn
             // 
@@ -72,6 +73,7 @@
             this.dgvResults.RowTemplate.Height = 24;
             this.dgvResults.Size = new System.Drawing.Size(457, 284);
             this.dgvResults.TabIndex = 3;
+            this.dgvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentClick);
             // 
             // SeekerHome
             // 
@@ -83,7 +85,7 @@
             this.Controls.Add(this.searchTextHolder);
             this.Controls.Add(this.label1);
             this.Name = "SeekerHome";
-            this.Text = "SeekerHome";
+            this.Text = "90";
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
