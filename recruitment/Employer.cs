@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace recruitment
+﻿namespace recruitment
 {
     internal class Employer
     {
+        public string PositionTitle { get; set; }
+        public string Department { get; set; }
+        public string LinkedInURL { get; set; }
+        public int JobCount { get; set; }
+
+        // public Company Company { get; set; }
+        // public List<Vacancy> PostedVacancies { get; set; } = new();
     }
 }
