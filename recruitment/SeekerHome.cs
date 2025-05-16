@@ -29,9 +29,8 @@ namespace recruitment
             double threshold = 0.5;
 
             var filteredJobs = allJobs.Where(job =>
-                Similarity(searchText, job.Title) >= threshold ||
-                Similarity(searchText, job.Location) >= threshold ||
-                Similarity(searchText, job.Field) >= threshold
+                Similarity(searchText, job.JobTitle) >= threshold ||
+                Similarity(searchText, job.Location) >= threshold
             ).ToList();
 
             dgvResults.DataSource = filteredJobs;
@@ -111,7 +110,7 @@ namespace recruitment
                             Salary = reader.GetDecimal(3),
                             ExperienceRequired = reader.GetInt32(4),
                             SkillsRequired = reader.GetString(5).Split(',').ToList(),
-                            PostedBy = new Employer { Id = reader.GetInt32(6), Name = reader.GetString(7) }
+                            PostedBy = new Employer { Id = reader.GetInt32(6), firstName = reader.GetString(7) }
                         });
                     }
                 }
