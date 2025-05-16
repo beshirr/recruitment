@@ -10,11 +10,25 @@ using System.Windows.Forms;
 
 namespace recruitment
 {
-    public partial class Form2 : Form
+    public partial class Index : Form
     {
-        public Form2()
+        public Index()
         {
             InitializeComponent();
+        }
+
+        private void login_button_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void signup_button_Click(object sender, EventArgs e)
+        {
+            Signup signup = new Signup();
+            signup.Show();
+            this.Hide();
         }
     }
 }

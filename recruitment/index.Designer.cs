@@ -1,6 +1,6 @@
 ﻿namespace recruitment
 {
-    partial class Form2
+    partial class Index
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.label1 = new System.Windows.Forms.Label();
+            this.login_button = new System.Windows.Forms.Button();
+            this.signup_button = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(187, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(440, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Welcome to our Recruitment application";
+            // 
+            // login_button
+            // 
+            this.login_button.BackColor = System.Drawing.SystemColors.Highlight;
+            this.login_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_button.Location = new System.Drawing.Point(273, 250);
+            this.login_button.Name = "login_button";
+            this.login_button.Size = new System.Drawing.Size(104, 40);
+            this.login_button.TabIndex = 1;
+            this.login_button.Text = "Login";
+            this.login_button.UseVisualStyleBackColor = false;
+            this.login_button.Click += new System.EventHandler(this.login_button_Click);
+            // 
+            // signup_button
+            // 
+            this.signup_button.BackColor = System.Drawing.SystemColors.Menu;
+            this.signup_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signup_button.Location = new System.Drawing.Point(427, 250);
+            this.signup_button.Name = "signup_button";
+            this.signup_button.Size = new System.Drawing.Size(104, 40);
+            this.signup_button.TabIndex = 2;
+            this.signup_button.Text = "Sign-up";
+            this.signup_button.UseVisualStyleBackColor = false;
+            this.signup_button.Click += new System.EventHandler(this.signup_button_Click);
+            // 
+            // Index
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form2";
+            this.Controls.Add(this.signup_button);
+            this.Controls.Add(this.login_button);
+            this.Controls.Add(this.label1);
+            this.Name = "Index";
+            this.Text = "Welcome";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button login_button;
+        private System.Windows.Forms.Button signup_button;
     }
 }
