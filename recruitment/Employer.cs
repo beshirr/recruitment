@@ -1,6 +1,9 @@
-﻿namespace recruitment
+﻿using System;
+using System.Collections.Generic;
+
+namespace recruitment
 {
-    internal class Employer
+    internal class Employer : User
     {
         public string PositionTitle { get; set; }
         public string Department { get; set; }
