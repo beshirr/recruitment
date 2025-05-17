@@ -39,12 +39,10 @@ namespace recruitment
                 MessageBox.Show("Please fill all fields");
                 return;
             }
-            SqlConnection con = new SqlConnection("Data Source=LAPTOP-HRLK7A2F\\MSSQLSERVER01;Initial Catalog=recruitment;Integrated Security=True");
+            SqlConnection con = new SqlConnection("Data Source=LAPTOP-HRLK7A2F\\MSSQLSERVER01;Initial Catalog=OnlineRecruitment;Integrated Security=True");
             con.Open();
-            string query = "INSERT INTO Employer" +
-            "(FirstName, LastName, Email, Password, Phone, PositionTitle, Department, LinkedInURL)" +
-            "VALUES" +
-            "(@FirstName, @LastName, @Email, @Password, @Phone, @PositionTitle, @Department, @LinkedInURL);";
+            string query = "INSERT INTO EMPLOYER (FirstName, LastName, Email, Password, Phone, PositionTitle, Department, LinkedInURL)" +
+            "VALUES (@FirstName, @LastName, @Email, @Password, @Phone, @PositionTitle, @Department, @LinkedInURL);";
 
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@FirstName", firstname);

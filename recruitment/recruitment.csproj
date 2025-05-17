@@ -61,11 +61,31 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-	  <Compile Include="recruitmentDataSet.Designer.cs">
-		  <AutoGen>True</AutoGen>
-		  <DesignTime>True</DesignTime>
-		  <DependentUpon>recruitmentDataSet.xsd</DependentUpon>
-	  </Compile>
+    <Compile Include="OnlineRequirements.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineRequirements.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineRequirementsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineRequirementsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineRequirementsDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineRequirementsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OnlineRequirementsDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineRequirementsDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="recruitmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recruitmentDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ManageVacanciesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +161,50 @@
     <EmbeddedResource Include="SeekerHome.resx">
       <DependentUpon>SeekerHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="OnlineRequirements.xsc">
+      <DependentUpon>OnlineRequirements.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineRequirements.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OnlineRequirements.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OnlineRequirements.xss">
+      <DependentUpon>OnlineRequirements.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineRequirementsDataSet.xsc">
+      <DependentUpon>OnlineRequirementsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineRequirementsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OnlineRequirementsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OnlineRequirementsDataSet.xss">
+      <DependentUpon>OnlineRequirementsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineRequirementsDataSet1.xsc">
+      <DependentUpon>OnlineRequirementsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineRequirementsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OnlineRequirementsDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OnlineRequirementsDataSet1.xss">
+      <DependentUpon>OnlineRequirementsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineRequirementsDataSet2.xsc">
+      <DependentUpon>OnlineRequirementsDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="OnlineRequirementsDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OnlineRequirementsDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OnlineRequirementsDataSet2.xss">
+      <DependentUpon>OnlineRequirementsDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

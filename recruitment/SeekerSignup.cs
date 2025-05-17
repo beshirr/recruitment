@@ -49,24 +49,38 @@ namespace recruitment
             }
             else 
             {
-                SqlConnection con = new SqlConnection("Data Source=LAPTOP-HRLK7A2F\\MSSQLSERVER01;Initial Catalog=recruitment;Integrated Security=True");
+                SqlConnection con = new SqlConnection("Data Source=LAPTOP-HRLK7A2F\\MSSQLSERVER01;Initial Catalog=OnlineRequirements;Integrated Security=True");
                 con.Open();
-                string query = "INSERT INTO Seeker" +
-                    "(FirstName, LastName, Email, Password, Phone, EducationLevel, ExperienceYears, Skills, Certifications)" +
-                    "VALUES" +
-                    "(@FirstName, @LastName, @Email, @Password, @Phone, @EducationLevel, @ExperienceYears, @Skills, @certifications);";
+                string query = "INSERT INTO SEEKER (S_FNAME, S_LNAME, S_EMAIL, S_PASSWORD, S_EDUCATIONLEVEL, EXPERIENCEYEARS, CERTIFICATIONS, SKILLS)" +
+                    " VALUES (@FirstName, @LastName, @Email, @Password, @EducationLevel, @ExperienceYears, @Certifications, @Skills);";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@FirstName", firstName);
                 cmd.Parameters.AddWithValue("@LastName", lastName);
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Password", password);
-                cmd.Parameters.AddWithValue("@Phone", phone);
                 cmd.Parameters.AddWithValue("@EducationLevel", educationLevel);
                 cmd.Parameters.AddWithValue("@ExperienceYears", experienceYears);
                 cmd.Parameters.AddWithValue("@Skills", skills);
                 cmd.Parameters.AddWithValue("@Certifications", certifications);
-
                 cmd.ExecuteNonQuery();
+
+                string sqlID = "SELECT SEEKERID FROM SEEKER WHERE S_EMAIL = @EMAIL";
+                SqlCommand IDcmd = new SqlCommand(sqlID, con);
+                IDcmd.Parameters.AddWithValue("@email", email);
+               
+                object result = IDcmd.ExecuteScalar();
+                int seekerId = 0;
+
+                if (result != null && result != DBNull.Value)
+                {
+                    seekerId = Convert.ToInt32(result);
+                }
+                
+                string query2 = "INSERT INTO SEEKER_PHONE (SID, S_PHONE)" +
+                    "VALUES (@SID, @Sphone);";
+                SqlCommand cmd2 = new SqlCommand(query2, con);
+                cmd2.Parameters.AddWithValue("@SID", seekerId);
+                cmd2.Parameters.AddWithValue("@Sphone", phone);
                 con.Close();
 
                 SeekerHome seekerHome = new SeekerHome();
