@@ -138,6 +138,7 @@
             this.submit_button.TabIndex = 10;
             this.submit_button.Text = "Submit";
             this.submit_button.UseVisualStyleBackColor = false;
+            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
             // SeekerSignup
             // 

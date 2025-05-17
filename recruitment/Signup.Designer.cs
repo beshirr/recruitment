@@ -30,11 +30,11 @@
         {
             this.title_lable = new System.Windows.Forms.Label();
             this.Email_lable = new System.Windows.Forms.Label();
-            this.name_lable = new System.Windows.Forms.Label();
+            this.lastName_label = new System.Windows.Forms.Label();
             this.phone_lable = new System.Windows.Forms.Label();
             this.password_lable = new System.Windows.Forms.Label();
             this.confirmPass_lable = new System.Windows.Forms.Label();
-            this.name_textbox = new System.Windows.Forms.TextBox();
+            this.lastName_textbox = new System.Windows.Forms.TextBox();
             this.email_textbox = new System.Windows.Forms.TextBox();
             this.phone_textbox = new System.Windows.Forms.TextBox();
             this.password_textbox = new System.Windows.Forms.TextBox();
@@ -42,6 +42,8 @@
             this.signup_button = new System.Windows.Forms.Button();
             this.seeker_radioButton = new System.Windows.Forms.RadioButton();
             this.employer_radioButton = new System.Windows.Forms.RadioButton();
+            this.firstname_label = new System.Windows.Forms.Label();
+            this.firstName_textbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // title_lable
@@ -64,15 +66,15 @@
             this.Email_lable.TabIndex = 1;
             this.Email_lable.Text = "Email : ";
             // 
-            // name_lable
+            // lastName_label
             // 
-            this.name_lable.AutoSize = true;
-            this.name_lable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_lable.Location = new System.Drawing.Point(85, 127);
-            this.name_lable.Name = "name_lable";
-            this.name_lable.Size = new System.Drawing.Size(53, 17);
-            this.name_lable.TabIndex = 2;
-            this.name_lable.Text = "Name :";
+            this.lastName_label.AutoSize = true;
+            this.lastName_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastName_label.Location = new System.Drawing.Point(85, 127);
+            this.lastName_label.Name = "lastName_label";
+            this.lastName_label.Size = new System.Drawing.Size(82, 17);
+            this.lastName_label.TabIndex = 2;
+            this.lastName_label.Text = "Last name :";
             // 
             // phone_lable
             // 
@@ -104,13 +106,13 @@
             this.confirmPass_lable.TabIndex = 5;
             this.confirmPass_lable.Text = "Confirm Password :";
             // 
-            // name_textbox
+            // lastName_textbox
             // 
-            this.name_textbox.Location = new System.Drawing.Point(301, 127);
-            this.name_textbox.Name = "name_textbox";
-            this.name_textbox.Size = new System.Drawing.Size(240, 20);
-            this.name_textbox.TabIndex = 6;
-            this.name_textbox.Text = "Enter your full name";
+            this.lastName_textbox.Location = new System.Drawing.Point(301, 127);
+            this.lastName_textbox.Name = "lastName_textbox";
+            this.lastName_textbox.Size = new System.Drawing.Size(240, 20);
+            this.lastName_textbox.TabIndex = 6;
+            this.lastName_textbox.Text = "Enter your last name";
             // 
             // email_textbox
             // 
@@ -154,6 +156,7 @@
             this.signup_button.TabIndex = 11;
             this.signup_button.Text = "Sign-up";
             this.signup_button.UseVisualStyleBackColor = false;
+            this.signup_button.Click += new System.EventHandler(this.signup_button_Click);
             // 
             // seeker_radioButton
             // 
@@ -177,11 +180,31 @@
             this.employer_radioButton.Text = "Employer";
             this.employer_radioButton.UseVisualStyleBackColor = true;
             // 
+            // firstname_label
+            // 
+            this.firstname_label.AutoSize = true;
+            this.firstname_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstname_label.Location = new System.Drawing.Point(85, 95);
+            this.firstname_label.Name = "firstname_label";
+            this.firstname_label.Size = new System.Drawing.Size(82, 17);
+            this.firstname_label.TabIndex = 14;
+            this.firstname_label.Text = "First name :";
+            // 
+            // firstName_textbox
+            // 
+            this.firstName_textbox.Location = new System.Drawing.Point(301, 92);
+            this.firstName_textbox.Name = "firstName_textbox";
+            this.firstName_textbox.Size = new System.Drawing.Size(240, 20);
+            this.firstName_textbox.TabIndex = 15;
+            this.firstName_textbox.Text = "Enter your first name";
+            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.firstName_textbox);
+            this.Controls.Add(this.firstname_label);
             this.Controls.Add(this.employer_radioButton);
             this.Controls.Add(this.seeker_radioButton);
             this.Controls.Add(this.signup_button);
@@ -189,11 +212,11 @@
             this.Controls.Add(this.password_textbox);
             this.Controls.Add(this.phone_textbox);
             this.Controls.Add(this.email_textbox);
-            this.Controls.Add(this.name_textbox);
+            this.Controls.Add(this.lastName_textbox);
             this.Controls.Add(this.confirmPass_lable);
             this.Controls.Add(this.password_lable);
             this.Controls.Add(this.phone_lable);
-            this.Controls.Add(this.name_lable);
+            this.Controls.Add(this.lastName_label);
             this.Controls.Add(this.Email_lable);
             this.Controls.Add(this.title_lable);
             this.Name = "Signup";
@@ -207,11 +230,11 @@
 
         private System.Windows.Forms.Label title_lable;
         private System.Windows.Forms.Label Email_lable;
-        private System.Windows.Forms.Label name_lable;
+        private System.Windows.Forms.Label lastName_label;
         private System.Windows.Forms.Label phone_lable;
         private System.Windows.Forms.Label password_lable;
         private System.Windows.Forms.Label confirmPass_lable;
-        private System.Windows.Forms.TextBox name_textbox;
+        private System.Windows.Forms.TextBox lastName_textbox;
         private System.Windows.Forms.TextBox email_textbox;
         private System.Windows.Forms.TextBox phone_textbox;
         private System.Windows.Forms.TextBox password_textbox;
@@ -219,5 +242,7 @@
         private System.Windows.Forms.Button signup_button;
         private System.Windows.Forms.RadioButton seeker_radioButton;
         private System.Windows.Forms.RadioButton employer_radioButton;
+        private System.Windows.Forms.Label firstname_label;
+        private System.Windows.Forms.TextBox firstName_textbox;
     }
 }

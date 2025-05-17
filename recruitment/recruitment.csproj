@@ -49,11 +49,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employer.cs" />
+    <Compile Include="EmployerSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployerSignup.Designer.cs">
+      <DependentUpon>EmployerSignup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="recruitmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recruitmentDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SeekerSignup.cs">
       <SubType>Form</SubType>
@@ -99,6 +110,9 @@
     <EmbeddedResource Include="SeekerSignup.resx">
       <DependentUpon>SeekerSignup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployerSignup.resx">
+      <DependentUpon>EmployerSignup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +143,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="recruitmentDataSet.xsc">
+      <DependentUpon>recruitmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="recruitmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>recruitmentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="recruitmentDataSet.xss">
+      <DependentUpon>recruitmentDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
