@@ -19,7 +19,7 @@ namespace recruitment
 
         public Vacancy() { }
 
-        public Vacancy(int vacancyId, int employerId, string jobTitle, string jobDescription, string skillsRequired, int experienceRequired, decimal salary, bool isVisible)
+        public Vacancy(int vacancyId, int employerId, string jobTitle, string jobDescription, List<string> skillsRequired, int experienceRequired, decimal salary, bool isVisible)
         {
             VacancyID = vacancyId;
             EmployerID = employerId;
