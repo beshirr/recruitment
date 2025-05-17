@@ -54,6 +54,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeekerSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeekerSignup.Designer.cs">
+      <DependentUpon>SeekerSignup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Signup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,9 +75,9 @@
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="Index.Designer.cs">
-		  <DependentUpon>Index.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="Index.Designer.cs">
+      <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
     <Compile Include="index.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Vacancy.cs" />
+    <EmbeddedResource Include="SeekerSignup.resx">
+      <DependentUpon>SeekerSignup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
