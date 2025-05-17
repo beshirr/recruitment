@@ -28,22 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label label1;
             this.searchTextHolder = new System.Windows.Forms.TextBox();
             this.searchBtn = new System.Windows.Forms.Button();
-            this.dgvResults = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            this.vacanciesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.recruitmentDataSet = new recruitment.recruitmentDataSet();
+            this.vacanciesTableAdapter = new recruitment.recruitmentDataSetTableAdapters.VacanciesTableAdapter();
+            this.lstJobs = new System.Windows.Forms.ListBox();
+            label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.vacanciesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recruitmentDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(179, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Find your suitable job, easily";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(179, 64);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(176, 16);
+            label1.TabIndex = 0;
+            label1.Text = "Find your suitable job, easily";
             // 
             // searchTextHolder
             // 
@@ -64,39 +69,54 @@
             this.searchBtn.UseVisualStyleBackColor = true;
             this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
-            // dgvResults
+            // vacanciesBindingSource
             // 
-            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Location = new System.Drawing.Point(182, 140);
-            this.dgvResults.Name = "dgvResults";
-            this.dgvResults.RowHeadersWidth = 51;
-            this.dgvResults.RowTemplate.Height = 24;
-            this.dgvResults.Size = new System.Drawing.Size(457, 284);
-            this.dgvResults.TabIndex = 3;
-            this.dgvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentClick);
+            this.vacanciesBindingSource.DataMember = "Vacancies";
+            this.vacanciesBindingSource.DataSource = this.recruitmentDataSet;
+            // 
+            // recruitmentDataSet
+            // 
+            this.recruitmentDataSet.DataSetName = "recruitmentDataSet";
+            this.recruitmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vacanciesTableAdapter
+            // 
+            this.vacanciesTableAdapter.ClearBeforeFill = true;
+            // 
+            // lstJobs
+            // 
+            this.lstJobs.FormattingEnabled = true;
+            this.lstJobs.ItemHeight = 16;
+            this.lstJobs.Location = new System.Drawing.Point(182, 111);
+            this.lstJobs.Name = "lstJobs";
+            this.lstJobs.Size = new System.Drawing.Size(457, 292);
+            this.lstJobs.TabIndex = 3;
             // 
             // SeekerHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvResults);
+            this.Controls.Add(this.lstJobs);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.searchTextHolder);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(label1);
             this.Name = "SeekerHome";
             this.Text = "90";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            this.Load += new System.EventHandler(this.SeekerHome_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.vacanciesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recruitmentDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchTextHolder;
         private System.Windows.Forms.Button searchBtn;
-        private System.Windows.Forms.DataGridView dgvResults;
+        private recruitmentDataSet recruitmentDataSet;
+        private System.Windows.Forms.BindingSource vacanciesBindingSource;
+        private recruitmentDataSetTableAdapters.VacanciesTableAdapter vacanciesTableAdapter;
+        private System.Windows.Forms.ListBox lstJobs;
     }
 }

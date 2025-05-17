@@ -1,6 +1,6 @@
 ﻿namespace recruitment
 {
-    internal class Employer : User
+    public class Employer : User
     {
 
     }
