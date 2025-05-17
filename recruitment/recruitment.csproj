@@ -54,7 +54,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Signup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,15 +69,14 @@
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Index.Designer.cs">
-      <DependentUpon>Index.cs</DependentUpon>
-=======
+	  <Compile Include="Index.Designer.cs">
+		  <DependentUpon>Index.cs</DependentUpon>
+	  </Compile>
     <Compile Include="index.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="index.Designer.cs">
       <DependentUpon>index.cs</DependentUpon>
->>>>>>> 4e50eab672f699bc510ec8455e52cb1229c1f4aa
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,7 +89,6 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Vacancy.cs" />
-<<<<<<< HEAD
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,10 +97,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="index.resx">
-      <DependentUpon>index.cs</DependentUpon>
->>>>>>> 4e50eab672f699bc510ec8455e52cb1229c1f4aa
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
