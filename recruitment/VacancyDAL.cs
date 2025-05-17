@@ -21,19 +21,19 @@ namespace recruitment
                     con.Open();
 
                     string query = @"INSERT INTO Vacancy 
-                                 (EmployerID, JobTitle, YearsofExperience, JobDescription, SkillsRequired, Salary, IsVisible) 
+                                 (COMPANYID_, V_JOBTITLE, V_EXPERIENCEREQUIRED, V_JOBDESCRIPTION, V_SKILLSREQUIRED, V_SALARY, ISVISIBILE) 
                                  VALUES (@EmployerID, @JobTitle, ,@YearsofExperience, @JobDescription, @SkillsRequired, @Salary, @IsVisible)";
 
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@EmployerID", vacancy.EmployerID);
-                        cmd.Parameters.AddWithValue("@JobTitle", vacancy.JobTitle);
-                        cmd.Parameters.AddWithValue("@YearsofExperience", vacancy.Years_of_Experience);
-                        cmd.Parameters.AddWithValue("@JobDescription", vacancy.JobDescription);
-                        cmd.Parameters.AddWithValue("@SkillsRequired", string.Join(",", vacancy.SkillsRequired));
-                        cmd.Parameters.AddWithValue("@Salary", vacancy.Salary);
-                        cmd.Parameters.AddWithValue("@IsVisible", vacancy.IsVisible);
+                        cmd.Parameters.AddWithValue("@EmployerID", vacancy.COMPANYID_);
+                        cmd.Parameters.AddWithValue("@JobTitle", vacancy.V_JOBTITLE);
+                        cmd.Parameters.AddWithValue("@YearsofExperience", vacancy.V_EXPERIENCEREQUIRED);
+                        cmd.Parameters.AddWithValue("@JobDescription", vacancy.V_JOBDESCRIPTION);
+                        cmd.Parameters.AddWithValue("@SkillsRequired", string.Join(",", vacancy.V_SKILLSREQUIRED));
+                        cmd.Parameters.AddWithValue("@Salary", vacancy.V_SALARY);
+                        cmd.Parameters.AddWithValue("@IsVisible", vacancy.ISVISIBILE);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
@@ -66,25 +66,25 @@ namespace recruitment
                     con.Open();
 
                     string query = @"UPDATE Vacancy SET 
-                                EmployerID = @EmployerID,
-                                JobTitle = @JobTitle,
-                                YearsofExperience =@Years_of_Experience,
-                                JobDescription = @JobDescription,
-                                SkillsRequired = @SkillsRequired,
-                                Salary = @Salary,
-                                IsVisible = @IsVisible
-                             WHERE VacancyID = @VacancyID";
+                                COMPANYID_ = @EmployerID,
+                                V_JOBTITLE = @JobTitle,
+                                V_EXPERIENCEREQUIRED =@Years_of_Experience,
+                                V_JOBDESCRIPTION = @JobDescription,
+                                V_SKILLSREQUIRED = @SkillsRequired,
+                                V_SALARY = @Salary,
+                                ISVISIBILE = @IsVisible
+                             WHERE VACANCYID = @VacancyID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@EmployerID", vacancy.EmployerID);
-                        cmd.Parameters.AddWithValue("@JobTitle", vacancy.JobTitle);
-                        cmd.Parameters.AddWithValue("@YearsofExperience", vacancy.Years_of_Experience);
-                        cmd.Parameters.AddWithValue("@JobDescription", vacancy.JobDescription);
-                        cmd.Parameters.AddWithValue("@SkillsRequired", vacancy.SkillsRequired);
-                        cmd.Parameters.AddWithValue("@Salary", vacancy.Salary);
-                        cmd.Parameters.AddWithValue("@IsVisible", vacancy.IsVisible);
-                        cmd.Parameters.AddWithValue("@VacancyID", vacancy.VacancyID);
+                        cmd.Parameters.AddWithValue("@EmployerID", vacancy.COMPANYID_);
+                        cmd.Parameters.AddWithValue("@JobTitle", vacancy.V_JOBTITLE);
+                        cmd.Parameters.AddWithValue("@YearsofExperience", vacancy.V_EXPERIENCEREQUIRED);
+                        cmd.Parameters.AddWithValue("@JobDescription", vacancy.V_JOBDESCRIPTION);
+                        cmd.Parameters.AddWithValue("@SkillsRequired", vacancy.V_SKILLSREQUIRED);
+                        cmd.Parameters.AddWithValue("@Salary", vacancy.V_SALARY);
+                        cmd.Parameters.AddWithValue("@IsVisible", vacancy.ISVISIBILE);
+                        cmd.Parameters.AddWithValue("@VacancyID", vacancy.VACANCYID);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -108,7 +108,7 @@ namespace recruitment
                 {
                     con.Open();
 
-                    string query = "DELETE FROM Vacancy WHERE VacancyID = @VacancyID";
+                    string query = "DELETE FROM Vacancy WHERE VACANCYID = @VacancyID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -137,7 +137,7 @@ namespace recruitment
                 {
                     con.Open();
 
-                    string query = "UPDATE Vacancy SET IsVisible = 0 WHERE VacancyID = @VacancyID";
+                    string query = "UPDATE Vacancy SET ISVISIBILE = 0 WHERE VACANCYID = @VacancyID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -165,7 +165,7 @@ namespace recruitment
                 {
                     con.Open();
 
-                    string query = "UPDATE Vacancy SET IsVisible = 1 WHERE VacancyID = @VacancyID";
+                    string query = "UPDATE Vacancy SET ISVISIBILE = 1 WHERE VACANCYID = @VacancyID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -195,8 +195,8 @@ namespace recruitment
                 {
                     con.Open();
 
-                    string query = @"SELECT VacancyID, EmployerID, JobTitle, JobDescription, SkillsRequired, ExperienceRequired, Salary, IsVisible 
-                             FROM Vacancy WHERE EmployerID = @EmployerID";
+                    string query = @"SELECT VACANCYID, COMPANYID_, V_JOBTITLE, V_JOBDESCRIPTION, V_SKILLSREQUIRED, V_EXPERIENCEREQUIRED, V_SALARY, ISVISIBILE 
+                             FROM Vacancy WHERE COMPANYID_ = @EmployerID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -208,14 +208,14 @@ namespace recruitment
                             {
                                 Vacancy v = new Vacancy
                                 {
-                                    VacancyID = reader.GetInt32(0),
-                                    EmployerID = reader.GetInt32(1),
-                                    JobTitle = reader.GetString(2),
-                                    JobDescription = reader.GetString(3),
-                                    SkillsRequired = reader.GetString(4).Split(',').Select(s => s.Trim()).ToList(),
-                                    Years_of_Experience = reader.GetInt32(5),
-                                    Salary = reader.GetDecimal(6),
-                                    IsVisible = reader.GetBoolean(7)
+                                    VACANCYID = reader.GetInt32(0),
+                                    COMPANYID_ = reader.GetInt32(1),
+                                    V_JOBTITLE = reader.GetString(2),
+                                    V_JOBDESCRIPTION = reader.GetString(3),
+                                    V_SKILLSREQUIRED = reader.GetString(4).Split(',').Select(s => s.Trim()).ToList(),
+                                    V_EXPERIENCEREQUIRED = reader.GetInt32(5),
+                                    V_SALARY = reader.GetDecimal(6),
+                                    ISVISIBILE = reader.GetBoolean(7)
                                 };
 
                                 vacancies.Add(v);
@@ -242,8 +242,8 @@ namespace recruitment
                 {
                     con.Open();
 
-                    string query = @"SELECT VacancyID, EmployerID, JobTitle, JobDescription, SkillsRequired, ExperienceRequired, Salary, IsVisible 
-                             FROM Vacancy WHERE VacancyID = @VacancyID";
+                    string query = @"SELECT VACANCYID, COMPANYID_, V_JOBTITLE, V_JOBDESCRIPTION, V_SKILLSREQUIRED, V_EXPERIENCEREQUIRED, V_SALARY, ISVISIBILE 
+                             FROM Vacancy WHERE VACANCYID = @VacancyID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -255,14 +255,14 @@ namespace recruitment
                             {
                                 vacancy = new Vacancy
                                 {
-                                    VacancyID = reader.GetInt32(0),
-                                    EmployerID = reader.GetInt32(1),
-                                    JobTitle = reader.GetString(2),
-                                    JobDescription = reader.GetString(3),
-                                    SkillsRequired = reader.GetString(4).Split(',').Select(s => s.Trim()).ToList(),
-                                    Years_of_Experience = reader.GetInt32(5),
-                                    Salary = reader.GetDecimal(6),
-                                    IsVisible = reader.GetBoolean(7)
+                                    VACANCYID = reader.GetInt32(0),
+                                    COMPANYID_ = reader.GetInt32(1),
+                                    V_JOBTITLE = reader.GetString(2),
+                                    V_JOBDESCRIPTION = reader.GetString(3),
+                                    V_SKILLSREQUIRED = reader.GetString(4).Split(',').Select(s => s.Trim()).ToList(),
+                                    V_EXPERIENCEREQUIRED = reader.GetInt32(5),
+                                    V_SALARY = reader.GetDecimal(6),
+                                    ISVISIBILE = reader.GetBoolean(7)
                                 };
                             }
                         }
