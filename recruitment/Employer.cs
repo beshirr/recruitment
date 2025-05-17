@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace recruitment
+﻿namespace recruitment
 {
     internal class Employer : User
     {
+
     }
 }
