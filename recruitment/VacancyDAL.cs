@@ -154,5 +154,33 @@ namespace recruitment
                 Console.WriteLine("Error hiding vacancy: " + ex.Message);
             }
         }
+        public static void ShowVacancy(int vacancyID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = "UPDATE Vacancy SET IsVisible = 1 WHERE VacancyID = @VacancyID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@VacancyID", vacancyID);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                            Console.WriteLine("Vacancy hidden successfully.");
+                        else
+                            Console.WriteLine("No vacancy found with the provided ID.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error hiding vacancy: " + ex.Message);
+            }
+        }
     }
 }
