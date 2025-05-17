@@ -26,11 +26,19 @@ namespace recruitment.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-HRLK7A2F\\MSSQLSERVER01;Initial Catalog=recruitment;Integrated " +
             "Security=True;TrustServerCertificate=True")]
         public string recruitmentConnectionString {
             get {
                 return ((string)(this["recruitmentConnectionString"]));
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BESHIR\\SQLEXPRESS;Initial Catalog=recruitment;Integrated Security=Tru" +
+            "e;Encrypt=True;TrustServerCertificate=True")]
+        public string recruitment {
+            get {
+                return ((string)(this["recruitment"]));
+>>>>>>> 0913a797b0cfa2e992a6b5c729258e2bfe679ba4
             }
         }
     }
