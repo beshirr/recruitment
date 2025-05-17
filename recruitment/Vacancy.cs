@@ -2,7 +2,7 @@
 
 namespace recruitment
 {
-    internal class Vacancy
+    public class Vacancy
     {
 
         public int VacancyID { get; set; }
@@ -13,7 +13,6 @@ namespace recruitment
         public int ExperienceRequired { get; set; }
         public decimal Salary { get; set; }
         public Employer PostedBy { get; set; }
-
         public string Location { get; set; }
         public bool IsVisible { get; set; } = true;
 
@@ -30,6 +29,5 @@ namespace recruitment
             Salary = salary;
             IsVisible = isVisible;
         }
-
     }
 }

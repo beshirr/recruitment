@@ -55,6 +55,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JobDetailsForm.Designer.cs">
+      <DependentUpon>JobDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="recruitmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recruitmentDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Signup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,9 +81,9 @@
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="Index.Designer.cs">
-		  <DependentUpon>Index.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="Index.Designer.cs">
+      <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
     <Compile Include="index.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +101,9 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Vacancy.cs" />
+    <EmbeddedResource Include="JobDetailsForm.resx">
+      <DependentUpon>JobDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,9 +134,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="recruitmentDataSet.xsc">
+      <DependentUpon>recruitmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="recruitmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>recruitmentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="recruitmentDataSet.xss">
+      <DependentUpon>recruitmentDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
