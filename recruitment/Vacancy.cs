@@ -14,7 +14,7 @@ namespace recruitment
         public decimal V_SALARY { get; set; }
         public Employer PostedBy { get; set; }
         public string Location { get; set; }
-        public bool ISVISIBILE { get; set; } = true;
+        public bool ISVISIBLE { get; set; } = true;
 
         public Vacancy() { }
 
@@ -27,7 +27,7 @@ namespace recruitment
             V_SKILLSREQUIRED = skillsRequired;
             V_EXPERIENCEREQUIRED = experienceRequired;
             V_SALARY = salary;
-            ISVISIBILE = isVisible;
+            ISVISIBLE = isVisible;
         }
     }
 }

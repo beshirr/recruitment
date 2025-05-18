@@ -33,7 +33,7 @@ namespace recruitment
                         cmd.Parameters.AddWithValue("@JobDescription", vacancy.V_JOBDESCRIPTION);
                         cmd.Parameters.AddWithValue("@SkillsRequired", string.Join(",", vacancy.V_SKILLSREQUIRED));
                         cmd.Parameters.AddWithValue("@Salary", vacancy.V_SALARY);
-                        cmd.Parameters.AddWithValue("@IsVisible", vacancy.ISVISIBILE);
+                        cmd.Parameters.AddWithValue("@IsVisible", vacancy.ISVISIBLE);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
@@ -72,7 +72,7 @@ namespace recruitment
                                 V_JOBDESCRIPTION = @JobDescription,
                                 V_SKILLSREQUIRED = @SkillsRequired,
                                 V_SALARY = @Salary,
-                                ISVISIBILE = @IsVisible
+                                ISVISIBLE = @IsVisible
                              WHERE VACANCYID = @VacancyID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
@@ -83,7 +83,7 @@ namespace recruitment
                         cmd.Parameters.AddWithValue("@JobDescription", vacancy.V_JOBDESCRIPTION);
                         cmd.Parameters.AddWithValue("@SkillsRequired", vacancy.V_SKILLSREQUIRED);
                         cmd.Parameters.AddWithValue("@Salary", vacancy.V_SALARY);
-                        cmd.Parameters.AddWithValue("@IsVisible", vacancy.ISVISIBILE);
+                        cmd.Parameters.AddWithValue("@IsVisible", vacancy.ISVISIBLE);
                         cmd.Parameters.AddWithValue("@VacancyID", vacancy.VACANCYID);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
@@ -137,7 +137,7 @@ namespace recruitment
                 {
                     con.Open();
 
-                    string query = "UPDATE Vacancy SET ISVISIBILE = 0 WHERE VACANCYID = @VacancyID";
+                    string query = "UPDATE Vacancy SET ISVISIBLE = 0 WHERE VACANCYID = @VacancyID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -165,7 +165,7 @@ namespace recruitment
                 {
                     con.Open();
 
-                    string query = "UPDATE Vacancy SET ISVISIBILE = 1 WHERE VACANCYID = @VacancyID";
+                    string query = "UPDATE Vacancy SET ISVISIBLE = 1 WHERE VACANCYID = @VacancyID";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -215,7 +215,7 @@ namespace recruitment
                                     V_SKILLSREQUIRED = reader.GetString(4).Split(',').Select(s => s.Trim()).ToList(),
                                     V_EXPERIENCEREQUIRED = reader.GetInt32(5),
                                     V_SALARY = reader.GetDecimal(6),
-                                    ISVISIBILE = reader.GetBoolean(7)
+                                    ISVISIBLE = reader.GetBoolean(7)
                                 };
 
                                 vacancies.Add(v);
@@ -262,7 +262,7 @@ namespace recruitment
                                     V_SKILLSREQUIRED = reader.GetString(4).Split(',').Select(s => s.Trim()).ToList(),
                                     V_EXPERIENCEREQUIRED = reader.GetInt32(5),
                                     V_SALARY = reader.GetDecimal(6),
-                                    ISVISIBILE = reader.GetBoolean(7)
+                                    ISVISIBLE = reader.GetBoolean(7)
                                 };
                             }
                         }

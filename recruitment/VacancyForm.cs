@@ -73,12 +73,12 @@ namespace recruitment
 
             var displayList = vacancies.Select(v => new
             {
-                v.VacancyID,
-                v.JobTitle,
-                v.Years_of_Experience,
-                Salary = v.Salary.ToString("C"), 
-                Skills = string.Join(", ", v.SkillsRequired),
-                Status = v.IsVisible ? "Visible" : "Hidden"
+                v.VACANCYID,
+                v.V_JOBTITLE,
+                v.V_EXPERIENCEREQUIRED,
+                Salary = v.V_SALARY.ToString("C"), 
+                Skills = string.Join(", ", v.V_SKILLSREQUIRED),
+                Status = v.ISVISIBLE ? "Visible" : "Hidden"
             }).ToList();
 
             dgvVacancies.DataSource = displayList;
@@ -105,12 +105,12 @@ namespace recruitment
 
                 if (vacancy != null)
                 {
-                    txtJobTitle.Text = vacancy.JobTitle;
-                    txtJobDescription.Text = vacancy.JobDescription;
-                    txtSkills.Text = string.Join(", ", vacancy.SkillsRequired);
-                    numExperience.Value = vacancy.Years_of_Experience;
-                    numSalary.Value = vacancy.Salary;
-                    chkIsVisible.Checked = vacancy.IsVisible;
+                    txtJobTitle.Text = vacancy.V_JOBTITLE;
+                    txtJobDescription.Text = vacancy.V_JOBDESCRIPTION;
+                    txtSkills.Text = string.Join(", ", vacancy.V_SKILLSREQUIRED);
+                    numExperience.Value = vacancy.V_EXPERIENCEREQUIRED;
+                    numSalary.Value = vacancy.V_SALARY;
+                    chkIsVisible.Checked = vacancy.ISVISIBLE;
                 }
             }
             else
@@ -144,18 +144,18 @@ namespace recruitment
             {
                 Vacancy vacancy = new Vacancy
                 {
-                    JobTitle = txtJobTitle.Text, 
-                    JobDescription = txtJobDescription.Text,
-                    SkillsRequired = txtSkills.Text.Split(',').Select(s => s.Trim()).ToList(),
-                    Years_of_Experience = (int)numExperience.Value,
-                    Salary = numSalary.Value,
-                    IsVisible = chkIsVisible.Checked,
-                    EmployerID = employerId
+                    V_JOBTITLE = txtJobTitle.Text,
+                    V_JOBDESCRIPTION = txtJobDescription.Text,
+                    V_SKILLSREQUIRED = txtSkills.Text.Split(',').Select(s => s.Trim()).ToList(),
+                    V_EXPERIENCEREQUIRED = (int)numExperience.Value,
+                    V_SALARY = numSalary.Value,
+                    ISVISIBLE = chkIsVisible.Checked,
+                    COMPANYID_ = employerId
                 };
 
                 if (dgvVacancies.SelectedRows.Count > 0)
                 {
-                    vacancy.VacancyID = (int)dgvVacancies.SelectedRows[0].Cells["VacancyID"].Value;
+                    vacancy.VACANCYID = (int)dgvVacancies.SelectedRows[0].Cells["VacancyID"].Value;
                     VacancyDAL.UpdateVacancy(vacancy);
                     MessageBox.Show("Vacancy updated successfully.");
                 }
